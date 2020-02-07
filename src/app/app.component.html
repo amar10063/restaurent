@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-sidenav></app-sidenav>
-<app-header></app-header>
+<app-header *ngIf='(this.router.url !== "/Login" || this.router.url !== "/")'></app-header>
+<app-sidenav ></app-sidenav>
+
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer ></app-footer>
 

@@ -5,7 +5,7 @@ import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: '', component: LoginComponent, pathMatch: 'full'},
   {path: 'Login', component: LoginComponent},
   {path: 'Dashboard', component: DashboardComponent},
   {path: 'CreateItem', component: CreateItemComponent},

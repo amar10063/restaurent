@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'restaurent';
+  public href1: string = "";
+  constructor(public router: Router) { }
+  ngOnInit() {
+    this.href1 = this.router.url;
+    console.log(this.router.url);
+  }
 }
