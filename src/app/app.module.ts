@@ -10,6 +10,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
+import { NewOrderComponent } from './pages/new-order/new-order.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoginComponent } from './login/login.component';
   
     DashboardComponent,
     CreateItemComponent,
-    LoginComponent
+    LoginComponent,
+    NewOrderComponent
+   
   ],
   imports: [
     BrowserModule,
