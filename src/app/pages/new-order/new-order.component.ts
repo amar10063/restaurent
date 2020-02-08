@@ -8,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class NewOrderComponent implements OnInit {
 
   constructor() { }
-
+  public show: boolean = true;
+  public hide: boolean = false;
+  newForm() {
+    this.show = false;
+    this.hide = true;
+  }
+  backForm() {
+    this.show = true;
+    this.hide = false;
+  }
   ngOnInit() {
   }
 

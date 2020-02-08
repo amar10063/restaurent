@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class CreateItemComponent implements OnInit {
 
   constructor() { }
-
+  public show: boolean = true;
+  public hide: boolean = false;
+  newForm() {
+    this.show = false;
+    this.hide = true;
+  }
+  backForm() {
+    this.show = true;
+    this.hide = false;
+  }
   ngOnInit() {
   }
-
 }

@@ -1,5 +1,19 @@
 <main>
-  <div class="container" id="ordersGrid">
+  <div class="container btnHeader">
+    <div class="row">
+      <div class="col s12">
+        <button class="btn waves-effect waves-light btn-small" (click)="newForm()" type="submit" name="action">New Order
+          <i class="material-icons left">add_circle</i>
+        </button>
+        <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
+          <i class="material-icons left">arrow_back</i>
+        </button>
+    <!-- <button class="header" (click)="newForm()">New Order</button>
+    <button class="header" (click)="backForm()">Back</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="container" id="ordersGrid" *ngIf="show" >
             
     <h5 class="center-align">All Orders</h5>
     <div class="custom-responsive">
@@ -44,7 +58,7 @@
     </table>
   </div>
 </div>
-<div class="container" id="ordersGrid">
+<div class="container" id="ordersGrid" style="display: none;">
             
   <h5 class="center-align"> Order Details(OI_001)</h5>
   <div class="custom-responsive">
@@ -75,7 +89,7 @@
   </table>
 </div>
 </div>
-  <section class="content" id="orderForm">
+  <section class="content" id="orderForm" *ngIf="hide">
      <div class="container">
       <div class="card">
         <form class="card-content">
@@ -104,6 +118,7 @@
                     <th>Items</th>
                     <th>Quantity</th>
                     <th>Sum</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -120,8 +135,23 @@
 </td>
                     <td> <input type="text" name="text" maxlength="200" /></td>
                     <td> <input type="text" name="text" maxlength="200" /></td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td>
                   </tr>
-                  
+                  <tr>
+                    <td>2</td>
+                    <td> 
+  <select>
+    <option value="0" >Choose your option</option>
+    <option value="1">Item 1</option>
+    <option value="2">Item 2</option>
+    <option value="3">Item 3</option>
+  </select>
+
+</td>
+                    <td> <input type="text" name="text" maxlength="200" /></td>
+                    <td> <input type="text" name="text" maxlength="200" /></td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
