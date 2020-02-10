@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,10 @@ import { Location } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'restaurent';
   public href1 ;
-  constructor(location: Location, private  router: Router) { }
-  
+  constructor( private  router1: Router) { }
+
   ngOnInit() {
-    this.href1 = this.router.url;
-    console.log(this.href1);
+    this.href1 = this.router1.url;
+    console.log(this.router1.url);
   }
 }

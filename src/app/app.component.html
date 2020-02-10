@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header *ngIf="( href1 == '' || href1 == '/Login')"></app-header>
-<app-sidenav ></app-sidenav>
+<app-header *ngIf='(this.router1.url !== "/Login")'></app-header>
+<app-sidenav *ngIf='(this.router1.url !== "/Login")'></app-sidenav>
 
 <router-outlet></router-outlet>
-<app-footer *ngIf="( href1 == '' || href1 == '/Login')"></app-footer>
+<app-footer *ngIf='(this.router1.url !== "/Login")'></app-footer>
 
