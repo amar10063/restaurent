@@ -2,27 +2,28 @@
   <section class="content">
    <div class="container">
       <div class="card">
-        <form class="card-content">
+        <form class="card-content" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
           <div class="row">
-            <h6>Login</h6>
+            <h5 class="center-align">Login</h5>
            
           </div>
         
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" name="text" maxlength="200" />
-              <label for="text">User Name: </label>
-            </div>
-      
-          </div>
-      <div class="row">
-            <div class="input-field col s12">
-              <input type="text" name="text" maxlength="200" />
-              <label for="text">Password: </label>
+              <input type="email" name="text" maxlength="200" formControlName="email"/>
+              <label for="text">User Email: </label>
+              <small class="errorMsg" *ngIf="!LoginForm.get('email').valid && LoginForm.get('email').touched">Please enter valid E-mail</small>
             </div>
      
           </div>
-          <div class="center-align"><input class="btn btn-success"type="submit" value="Submit" /></div>
+      <div class="row">
+            <div class="input-field col s12">
+              <input type="password" name="text" maxlength="200" formControlName="password"/>
+              <label for="text">Password: </label>
+              <small class="errorMsg" *ngIf="!LoginForm.get('password').valid && LoginForm.get('password').touched">Please enter Password</small>
+            </div>     
+          </div>
+          <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="LoginForm.invalid" value="Submit" /></div>
         </form>
       </div>
     </div>

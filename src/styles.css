@@ -2,3 +2,7 @@
 main{margin-top:100px;}
 select{display:block}
 .btnHeader button{margin:0 2px;}
+input.ng-touched.ng-invalid{
+    border-bottom:2px solid red;
+} 
+.errorMsg{color: red;}

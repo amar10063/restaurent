@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-item',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-item.component.css']
 })
 export class CreateItemComponent implements OnInit {
-
+  createItemForm: FormGroup;
   constructor() { }
   public show: boolean = true;
   public hide: boolean = false;
@@ -19,5 +20,14 @@ export class CreateItemComponent implements OnInit {
     this.hide = false;
   }
   ngOnInit() {
+    this.createItemForm = new FormGroup({
+      'itemName': new FormControl(null, Validators.required),
+      'itemCode': new FormControl(null, Validators.required),
+      'itemPrice': new FormControl(null, Validators.required),
+      'ItemDescription': new FormControl(null, Validators.required),
+    });
+  }
+  onSubmit() {
+    console.log(this.createItemForm.value);
   }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,7 +19,7 @@ import { NewOrderComponent } from './pages/new-order/new-order.component';
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-  
+    
     DashboardComponent,
     CreateItemComponent,
     LoginComponent,
@@ -27,7 +27,7 @@ import { NewOrderComponent } from './pages/new-order/new-order.component';
    
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

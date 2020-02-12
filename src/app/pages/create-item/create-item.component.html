@@ -56,7 +56,7 @@
   <section class="content" *ngIf="hide">
    <div class="container">
       <div class="card">
-        <form class="card-content">
+        <form class="card-content" [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <h6>Create New Item</h6>
            
@@ -64,25 +64,29 @@
         
           <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" />
+              <input type="text" name="text" maxlength="200" formControlName="itemName"/>
               <label for="text">Item Name: </label>
+              <small class="errorMsg" *ngIf="!createItemForm.get('itemName').valid && createItemForm.get('itemName').touched">Please enter item Name</small>
             </div>
       <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" />
+              <input type="text" name="Code" maxlength="200" formControlName="itemCode"/>
               <label for="text">Item Code: </label>
+              <small class="errorMsg" *ngIf="!createItemForm.get('itemCode').valid && createItemForm.get('itemCode').touched">Please enter item Code</small>
             </div>
           </div>
       <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" />
+              <input type="text" name="text" maxlength="200" formControlName="itemPrice"/>
               <label for="text">Item Price: </label>
+              <small class="errorMsg" *ngIf="!createItemForm.get('itemPrice').valid && createItemForm.get('itemPrice').touched">Please enter item Price</small>
             </div>
       <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" />
+              <input type="text" name="Code" maxlength="200" formControlName="ItemDescription"/>
               <label for="text">Item Description: </label>
+             
             </div>
           </div>
-          <div class="center-align"><input class="btn btn-success"type="submit" value="Submit" /></div>
+          <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="createItemForm.invalid" value="Submit" /></div>
         </form>
       </div>
     </div>

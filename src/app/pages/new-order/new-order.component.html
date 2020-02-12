@@ -92,7 +92,7 @@
   <section class="content" id="orderForm" *ngIf="hide">
      <div class="container">
       <div class="card">
-        <form class="card-content">
+        <form class="card-content"  [formGroup]="newOrderForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <h6>Create New Order</h6>
            
@@ -100,12 +100,14 @@
         
           <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" />
+              <input type="text" name="text" maxlength="200"  formControlName="CustomerName"/>
               <label for="text">Customer Name: </label>
+              <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerName').valid && newOrderForm.get('CustomerName').touched">Please enter Password</small>
             </div>
       <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" />
+              <input type="text" name="Code" maxlength="200" formControlName="CustomerMobile"/>
               <label for="text">Mobile(optional) </label>
+              <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerMobile').valid && newOrderForm.get('CustomerMobile').touched">Please enter Password</small>
             </div>
           </div>
   <div class="row">
@@ -135,9 +137,9 @@
 </td>
                     <td> <input type="text" name="text" maxlength="200" /></td>
                     <td> <input type="text" name="text" maxlength="200" /></td>
-                    <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr>
-                  <tr>
+                  <tr formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
                     <td>2</td>
                     <td> 
   <select>
@@ -148,9 +150,9 @@
   </select>
 
 </td>
-                    <td> <input type="text" name="text" maxlength="200" /></td>
-                    <td> <input type="text" name="text" maxlength="200" /></td>
-                    <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+                    <td> <input type="text" name="text" maxlength="200" formControlName="{{i}}"/></td>
+                    <td> <input type="text" name="text" maxlength="200" formControlName="{{i+i}}"/></td>
+                    <td> <a class="btn-floating btn-large waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr>
                 </tbody>
               </table>
