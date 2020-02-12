@@ -6,3 +6,21 @@ input.ng-touched.ng-invalid{
     border-bottom:2px solid red;
 } 
 .errorMsg{color: red;}
+.row{margin-bottom: 5px !important;}
+.footer-copyright{    min-height: 30px !important;}
+td, th {
+    padding: 5px 5px !important;
+}
+footer.page-footer {
+    padding-top: 10px;
+    background-color: #0e867a !important;
+}
+.btn{height: 25px;
+    line-height: 25px;
+    padding: 0 .75rem;
+    text-transform: none;}
+@media only screen and (min-width: 993px){
+.container {
+    width: 95% !important;
+}
+}
