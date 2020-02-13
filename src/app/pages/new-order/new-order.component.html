@@ -16,7 +16,8 @@
   <div class="container" id="ordersGrid" *ngIf="show" >
             
     <h5 class="center-align">All Orders</h5>
-    <div></div>
+    <div class="card">
+      <div class="card-content">
     <div class="custom-responsive">
       <table class="striped hover centered">
         <thead>
@@ -58,10 +59,14 @@
       </tbody>
     </table>
   </div>
+      </div>
+    </div>
 </div>
 <div class="container" id="ordersGrid" style="display: none;">
             
   <h5 class="center-align"> Order Details(OI_001)</h5>
+  <div class="card">
+    <div class="card-content">
   <div class="custom-responsive">
     <table class="striped hover centered">
       <thead>
@@ -89,6 +94,8 @@
     </tbody>
   </table>
 </div>
+    </div>
+  </div>
 </div>
   <section class="content" id="orderForm" *ngIf="hide">
      <div class="container">
@@ -119,9 +126,10 @@
                   <thead><tr>
                     <th>S.No.</th>
                     <th>Items</th>
+                    <th>Price</th>
                     <th>Quantity</th>
                     <th>Sum</th>
-                    <th></th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -136,8 +144,9 @@
   </select>
 
 </td>
+<td> <label>100</label></td>
                     <td> <input type="text" name="text" maxlength="200" /></td>
-                    <td> <input type="text" name="text" maxlength="200" /></td>
+                    <td> <label>1000</label></td>
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr>
                   <tr formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
@@ -151,8 +160,9 @@
   </select>
 
 </td>
+<td> <label>1100</label></td>
                     <td> <input type="text" name="text" maxlength="200" formControlName="{{i}}"/></td>
-                    <td> <input type="text" name="text" maxlength="200" formControlName="{{i+i}}"/></td>
+                    <td> <label>10000</label></td>
                     <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr>
                 </tbody>
