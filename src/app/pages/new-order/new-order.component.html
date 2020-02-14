@@ -132,8 +132,8 @@
                     
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
+                  <!-- <tr>
                     <td>1</td>
                     <td> 
   <select>
@@ -148,11 +148,11 @@
                     <td> <input type="text" name="text" maxlength="200" /></td>
                     <td> <label>1000</label></td>
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
-                  </tr>
-                  <tr formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
+                  </tr> -->
+                  <tr [formGroupName]="i"  >
                     <td>2</td>
                     <td> 
-  <select>
+  <select formControlName="itemName">
     <option value="0" >Choose your option</option>
     <option value="1">Item 1</option>
     <option value="2">Item 2</option>
@@ -161,7 +161,7 @@
 
 </td>
 <td> <label>1100</label></td>
-                    <td> <input type="text" name="text" maxlength="200" formControlName="{{i}}"/></td>
+                    <td> <input type="text" name="text" maxlength="200" formControlName="quantity"/></td>
                     <td> <label>10000</label></td>
                     <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr>
@@ -169,7 +169,7 @@
               </table>
             </div>
           </div>
-          <div class="center-align"><input class="btn btn-success"type="submit" value="Submit" /></div>
+          <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="newOrderForm.invalid" value="Submit" /></div>
         </form>
       </div>
     </div>

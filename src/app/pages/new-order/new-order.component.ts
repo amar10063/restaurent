@@ -21,15 +21,28 @@ export class NewOrderComponent implements OnInit {
   }
   ngOnInit() {
     this.newOrderForm = new FormGroup({
-      'CustomerName': new FormControl(null, [Validators.required, Validators.email]),
+      'CustomerName': new FormControl(null, Validators.required),
       'CustomerMobile': new FormControl(null, Validators.required),
-      'addItem': new FormArray([
-        new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required)
-      ]),
+      'addItem': new FormArray([this.createItem()]),
     });
   }
+  createItem(): FormGroup {
+    return  new FormGroup({
+      'itemName': new FormControl(null, Validators.required),
+      'quantity': new FormControl(null, Validators.required),
+    })
+  }
+
   addItem() {
-    (<FormArray>this.newOrderForm.get('addItem')).push(new FormControl(null, Validators.required));
+   (<FormArray>this.newOrderForm.get('addItem')).push(new FormGroup({
+    'itemName': new FormControl(null, Validators.required),
+    'quantity': new FormControl(null, Validators.required),
+  }));
+   }
+   //removeItem(i:number) {
+    //this.addItem.removeAt(i);
+  //}
+   onSubmit() {
+    console.log(this.newOrderForm.value);
   }
 }
