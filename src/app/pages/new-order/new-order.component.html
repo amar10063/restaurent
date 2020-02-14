@@ -133,7 +133,7 @@
                     <th></th>
                   </tr>
                 </thead>
-                <tbody formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
+                <tbody formArrayName="addItem" >
                   <!-- <tr>
                     <td>1</td>
                     <td> 
@@ -150,7 +150,7 @@
                     <td> <label>1000</label></td>
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr> -->
-                  <tr [formGroupName]="i"  >
+                  <tr [formGroupName]="i"  *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
                     <td>{{i+1}}</td>
                     <td> 
   <select formControlName="itemName">
