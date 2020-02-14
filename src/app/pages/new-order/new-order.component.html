@@ -129,7 +129,8 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Sum</th>
-                    
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody formArrayName="addItem" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
@@ -150,7 +151,7 @@
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr> -->
                   <tr [formGroupName]="i"  >
-                    <td>2</td>
+                    <td>{{i+1}}</td>
                     <td> 
   <select formControlName="itemName">
     <option value="0" >Choose your option</option>
@@ -164,6 +165,7 @@
                     <td> <input type="text" name="text" maxlength="200" formControlName="quantity"/></td>
                     <td> <label>10000</label></td>
                     <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
+                    <td> <a class="btn-floating waves-effect waves-light red" (click)="removeItem(i)"><i class="material-icons">remove</i></a></td>
                   </tr>
                 </tbody>
               </table>

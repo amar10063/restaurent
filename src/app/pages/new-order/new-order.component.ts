@@ -25,24 +25,26 @@ export class NewOrderComponent implements OnInit {
       'CustomerMobile': new FormControl(null, Validators.required),
       'addItem': new FormArray([this.createItem()]),
     });
+    
   }
   createItem(): FormGroup {
-    return  new FormGroup({
+    return new FormGroup({
       'itemName': new FormControl(null, Validators.required),
       'quantity': new FormControl(null, Validators.required),
     })
   }
 
   addItem() {
-   (<FormArray>this.newOrderForm.get('addItem')).push(new FormGroup({
-    'itemName': new FormControl(null, Validators.required),
-    'quantity': new FormControl(null, Validators.required),
-  }));
-   }
-   //removeItem(i:number) {
+    (<FormArray>this.newOrderForm.get('addItem')).push(new FormGroup({
+      'itemName': new FormControl(null, Validators.required),
+      'quantity': new FormControl(null, Validators.required),
+    }));
+  }
+  removeItem(i) {
+    console.log("row No =" + i);
     //this.addItem.removeAt(i);
-  //}
-   onSubmit() {
+  }
+  onSubmit() {
     console.log(this.newOrderForm.value);
   }
 }
