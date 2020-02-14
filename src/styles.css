@@ -5,6 +5,9 @@ select{display:block}
 input.ng-touched.ng-invalid{
     border-bottom:2px solid red;
 } 
+select.ng-touched.ng-invalid{
+    border-bottom:2px solid red;
+} 
 .errorMsg{color: red;}
 .row{margin-bottom: 5px !important;}
 .footer-copyright{    min-height: 30px !important;}
