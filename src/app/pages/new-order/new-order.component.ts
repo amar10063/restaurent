@@ -34,7 +34,7 @@ export class NewOrderComponent implements OnInit {
     })
   }
 
-  addItem() {
+  addItem(): void {
     (<FormArray>this.newOrderForm.get('addItem')).push(new FormGroup({
       'itemName': new FormControl(null, Validators.required),
       'quantity': new FormControl(null, Validators.required),
@@ -42,7 +42,7 @@ export class NewOrderComponent implements OnInit {
   }
   removeItem(i: number) {
     console.log("row No =" + i);
-    this.addItem.removeAt(i);
+    (<FormArray>this.newOrderForm.get('addItem')).removeAt(i);
   }
   onSubmit() {
     console.log(this.newOrderForm.value);
