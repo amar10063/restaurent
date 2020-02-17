@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       console.log(succ);
       if (succ.status == "success") {
         this.router.navigate(['/Dashboard']);
-        sessionStorage.setItem('admin', succ.userName);
+        sessionStorage.setItem('adminEmail', succ.userName);
       }
       else {
         alert("not valid credentials");
