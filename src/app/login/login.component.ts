@@ -11,6 +11,7 @@ import { LoginServiceService } from '../login-service.service';
 export class LoginComponent implements OnInit {
   href1: string;
   LoginForm: FormGroup;
+  logindata: any;
   constructor(private router: Router, private loginService: LoginServiceService) { }
 
   ngOnInit() {
@@ -19,16 +20,28 @@ export class LoginComponent implements OnInit {
     this.LoginForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, Validators.required),
+      'AppId': new FormControl("300002"),
     });
   }
 
 
   onSubmit() {
-    console.log(this.LoginForm.value);
-
+    let logindata = this.LoginForm.value;
+    console.log(logindata);
+    this.login(logindata);
   }
-login(loginAdmin: LoginAdmin){
-this.loginService.adminLogin(loginAdmin).subscribe();
-}
+  login(loginAdmin: LoginAdmin) {
+    this.loginService.adminLogin(loginAdmin).subscribe((employee) => {
+      var succ = employee;
+      console.log(succ);
+      if (succ.status == "success") {
+        this.router.navigate(['/Dashboard']);
+        sessionStorage.setItem('admin', succ.userName);
+      }
+      else {
+        alert("not valid credentials");
+      }
+    });
+  }
 
 }

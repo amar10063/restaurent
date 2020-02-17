@@ -8,7 +8,7 @@ import {Observable } from 'rxjs';
 })
 export class LoginServiceService {
 
-  baseUrl = '';
+  baseUrl = 'http://10.10.10.140:811/api/UploadMandate/Logindata';
   constructor(private http: HttpClient) { }
 
   adminLogin(admin: LoginAdmin): Observable<LoginAdmin> {

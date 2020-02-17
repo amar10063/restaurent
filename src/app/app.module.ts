@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrderComponent } from './pages/new-order/new-order.component';
+import { LoginServiceService } from './login-service.service';
 
 
 @NgModule({
@@ -19,18 +20,17 @@ import { NewOrderComponent } from './pages/new-order/new-order.component';
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-    
     DashboardComponent,
     CreateItemComponent,
     LoginComponent,
     NewOrderComponent
-   
+
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule,
+    BrowserModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

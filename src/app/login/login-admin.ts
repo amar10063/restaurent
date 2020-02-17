@@ -1,4 +1,7 @@
 export class LoginAdmin {
-    email: string;
+    emailid: string;
     password: string;
+    AppId: string;
+  status: string;
+  userName: string;
 }
