@@ -12,6 +12,7 @@ import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrderComponent } from './pages/new-order/new-order.component';
 import { LoginServiceService } from './login-service.service';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { LoginServiceService } from './login-service.service';
     BrowserModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule
   ],
-  providers: [LoginServiceService],
+  providers: [LoginServiceService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
