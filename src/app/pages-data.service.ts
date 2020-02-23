@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginAdmin } from './login/login-admin';
 import { Observable } from 'rxjs';
+import { Items } from './pages/create-item/items';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginServiceService {
+export class PagesDataService {
 
   baseUrl = 'http://10.10.10.124:808/api/ActivityAdd/AngularManipulation';
   constructor(private http: HttpClient) { }
 
-  adminLogin(admin: LoginAdmin): Observable<LoginAdmin> {
-    const body = JSON.stringify(admin);
+  createItem(items: Items): Observable<Items> {
+    const body = JSON.stringify(items);
     // const body = admin;
     console.log(body);
     const headers = new HttpHeaders().set('content-type', 'application/json');
-    return this.http.post<LoginAdmin>(this.baseUrl, body, {
+    return this.http.post<Items>(this.baseUrl, body, {
       headers
     });
   }

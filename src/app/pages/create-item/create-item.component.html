@@ -80,12 +80,12 @@
           </div>
       <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" formControlName="itemPrice"/>
+              <input type="text" name="text" maxlength="200" formControlName="Price"/>
               <label for="text">Item Price: </label>
-              <small class="errorMsg" *ngIf="!createItemForm.get('itemPrice').valid && createItemForm.get('itemPrice').touched">Please enter item Price</small>
+              <small class="errorMsg" *ngIf="!createItemForm.get('Price').valid && createItemForm.get('Price').touched">Please enter item Price</small>
             </div>
       <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" formControlName="ItemDescription"/>
+              <input type="text" name="Code" maxlength="200" formControlName="Description"/>
               <label for="text">Item Description: </label>
              
             </div>

@@ -12,6 +12,7 @@ import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrderComponent } from './pages/new-order/new-order.component';
 import { LoginServiceService } from './login-service.service';
+import { PagesDataService  } from './pages-data.service';
 import { AuthGuard } from './auth.guard';
 
 
@@ -31,7 +32,7 @@ import { AuthGuard } from './auth.guard';
     BrowserModule, ReactiveFormsModule, HttpClientModule,
     AppRoutingModule
   ],
-  providers: [LoginServiceService, AuthGuard],
+  providers: [LoginServiceService, PagesDataService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
