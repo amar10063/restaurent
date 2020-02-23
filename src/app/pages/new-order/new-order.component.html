@@ -1,140 +1,185 @@
 <main>
-  <div class="container btnHeader">
-    <div class="row">
-      <div class="col s12">
-        <button class="btn waves-effect waves-light btn-small" (click)="newForm()" type="submit" name="action">New Order
+    <div class="container btnHeader">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light btn-small" (click)="newForm()" type="submit" name="action">New Order
           <i class="material-icons left">add_circle</i>
         </button>
-        <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
+                <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
           <i class="material-icons left">arrow_back</i>
         </button>
-    <!-- <button class="header" (click)="newForm()">New Order</button>
+                <!-- <button class="header" (click)="newForm()">New Order</button>
     <button class="header" (click)="backForm()">Back</button> -->
-      </div>
-    </div>
-  </div>
-  <div class="container" id="ordersGrid" *ngIf="show" >
-            
-    <h5 class="center-align">All Orders</h5>
-    <div class="card">
-      <div class="card-content">
-    <div class="custom-responsive">
-      <table class="striped hover centered">
-        <thead>
-          <tr>
-          <th>S.No.</th>
-          <th>Customer Name</th>
-          <th>Mobile</th>
-          <th>Order ID</th>
-          <th>Total Quantity</th>
-          <th>Total Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Amar</td>
-          <td>9932017031</td>
-          <td>OD1</td>
-          <td>5</td>
-          <td>800</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Amarjeet</td>
-          <td>9932017031</td>
-          <td>OD2</td>
-          <td>5</td>
-          <td>800</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Amar</td>
-          <td>9932017031</td>
-          <td>OD3</td>
-          <td>5</td>
-          <td>8000</td>
-        </tr>
-      
-      </tbody>
-    </table>
-  </div>
-      </div>
-    </div>
-</div>
-<div class="container" id="ordersGrid" style="display: none;">
-            
-  <h5 class="center-align"> Order Details(OI_001)</h5>
-  <div class="card">
-    <div class="card-content">
-  <div class="custom-responsive">
-    <table class="striped hover centered">
-      <thead>
-        <tr>
-        <th>S.No.</th>
-        <th>Item Name</th>
-        <th>Quantity</th> 
-        <th> Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Item1</td> 
-        <td>5</td>
-        <td>800</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Item2</td> 
-        <td>2</td>
-        <td>800</td>
-      </tr>
-    
-    </tbody>
-  </table>
-</div>
-    </div>
-  </div>
-</div>
-  <section class="content" id="orderForm" *ngIf="hide">
-     <div class="container">
-      <div class="card">
-        <form class="card-content"  [formGroup]="newOrderForm" (ngSubmit)="onSubmit()">
-          <div class="row">
-            <h6>Create New Order</h6>
-           
-          </div>
-        
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200"  formControlName="CustomerName"/>
-              <label for="text">Customer Name: </label>
-              <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerName').valid && newOrderForm.get('CustomerName').touched">Please enter Password</small>
             </div>
-      <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" formControlName="CustomerMobile"/>
-              <label for="text">Mobile(optional) </label>
-              <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerMobile').valid && newOrderForm.get('CustomerMobile').touched">Please enter Password</small>
+        </div>
+    </div>
+    <div class="container" id="ordersGrid" *ngIf="show">
+
+
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <h6 class="tableTitle">All Orders</h6>
+                    </div>
+                    <div class="input-field col s4">
+                    </div>
+                    <div class="input-field col s2">
+                        <div class="switch">
+                            <label>
+                Off
+                <input type="checkbox">
+                <span class="lever"></span>
+                On
+              </label>
+                        </div>
+
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" name="text" maxlength="200" />
+                        <label for="text">Search: </label>
+                    </div>
+                </div>
+                <div class="custom-responsive">
+                    <table class="striped hover centered">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Customer Name</th>
+                                <th>Mobile</th>
+                                <th>Order ID</th>
+                                <th>Total Quantity</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Amar</td>
+                                <td>9932017031</td>
+                                <td>OD1</td>
+                                <td>5</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Amarjeet</td>
+                                <td>9932017031</td>
+                                <td>OD2</td>
+                                <td>5</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Amar</td>
+                                <td>9932017031</td>
+                                <td>OD3</td>
+                                <td>5</td>
+                                <td>8000</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </div>
-  <div class="row">
-            
-             
-              <div class="custom-responsive">
-                <table class="striped hover centered">
-                  <thead><tr>
-                    <th>S.No.</th>
-                    <th>Items</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Sum</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody formArrayName="addItem" >
-                  <!-- <tr>
+        </div>
+    </div>
+    <div class="container" id="ordersGrid" style="display: none;">
+
+        <h5 class="center-align"> Order Details(OI_001)</h5>
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <h6 class="tableTitle">All Orders</h6>
+                    </div>
+                    <div class="input-field col s4">
+                    </div>
+                    <div class="input-field col s2">
+                        <div class="switch">
+                            <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+          </label>
+                        </div>
+
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" name="text" maxlength="200" />
+                        <label for="text">Search: </label>
+                    </div>
+                </div>
+                <div class="custom-responsive">
+                    <table class="striped hover centered">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Item Name</th>
+                                <th>Quantity</th>
+                                <th> Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Item1</td>
+                                <td>5</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Item2</td>
+                                <td>2</td>
+                                <td>800</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content" id="orderForm" *ngIf="hide">
+        <div class="container">
+            <div class="card">
+                <form class="card-content" [formGroup]="newOrderForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <h6>Create New Order</h6>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="text" maxlength="200" formControlName="CustomerName" />
+                            <label for="text">Customer Name: </label>
+                            <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerName').valid && newOrderForm.get('CustomerName').touched">Please enter Password</small>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="Code" maxlength="200" formControlName="CustomerMobile" />
+                            <label for="text">Mobile(optional) </label>
+                            <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerMobile').valid && newOrderForm.get('CustomerMobile').touched">Please enter Password</small>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        <div class="custom-responsive">
+                            <table class="striped hover centered">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Items</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Sum</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="addItem">
+                                    <!-- <tr>
                     <td>1</td>
                     <td> 
   <select>
@@ -150,31 +195,31 @@
                     <td> <label>1000</label></td>
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr> -->
-                  <tr [formGroupName]="i"  *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
-                    <td>{{i+1}}</td>
-                    <td> 
-  <select formControlName="itemName">
+                                    <tr [formGroupName]="i" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>
+                                            <select formControlName="itemName">
     <option value="0" >Choose your option</option>
     <option value="1">Item 1</option>
     <option value="2">Item 2</option>
     <option value="3">Item 3</option>
   </select>
 
-</td>
-<td> <label>1100</label></td>
-                    <td> <input type="text" name="text" maxlength="200" formControlName="quantity"/></td>
-                    <td> <label>10000</label></td>
-                    <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
-                    <td> <a class="btn-floating waves-effect waves-light red" (click)="removeItem(i)"><i class="material-icons">remove</i></a></td>
-                  </tr>
-                </tbody>
-              </table>
+                                        </td>
+                                        <td> <label>1100</label></td>
+                                        <td> <input type="text" name="text" maxlength="200" formControlName="quantity" /></td>
+                                        <td> <label>10000</label></td>
+                                        <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
+                                        <td> <a class="btn-floating waves-effect waves-light red" (click)="removeItem(i)"><i class="material-icons">remove</i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="newOrderForm.invalid" value="Submit" /></div>
+                </form>
             </div>
-          </div>
-          <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="newOrderForm.invalid" value="Submit" /></div>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  </main>
+        </div>
+    </section>
+
+</main>

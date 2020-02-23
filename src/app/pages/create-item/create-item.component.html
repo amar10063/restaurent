@@ -1,92 +1,113 @@
 <main>
-  <div class="container btnHeader">
-    <div class="row">
-      <div class="col s12">
-        <button class="btn waves-effect waves-light btn-small" (click)="newForm()" type="submit" name="action">Add Item
+    <div class="container btnHeader">
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light btn-small" (click)="newForm()" type="submit" name="action">Add Item
           <i class="material-icons left">add_circle</i>
         </button>
-        <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
+                <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
           <i class="material-icons left">arrow_back</i>
         </button>
-        <button class="btn waves-effect waves-light"  type="submit" name="action">Admin Control
+                <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Admin Control
           <i class="material-icons left">person</i>
-        </button>
-    <!-- <button class="header" >New Order</button>
+        </button> -->
+                <!-- <button class="header" >New Order</button>
     <button class="header" (click)="backForm()">Back</button> -->
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container" *ngIf="show" >
-            
-    <h5 class="center-align">All Items</h5>
-    <div class="card">
-      <div class="card-content">
-    <div class="custom-responsive">
-      <table class="striped hover centered">
-        <thead><tr>
-          <th>S.No.</th>
-          <th>Item Name</th>
-          <th>Item Code</th>
-          <th>Item price</th>
-          <th>Item Description</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of aa; index as i ">
-          <td>{{i+1}}</td>
-          <td>{{item.ItemName }}</td>
-          <td>{{item.ItemCode }}</td>
-          <td>{{item.Price }}</td>
-          <td>{{item.Description }}</td>
-          <td> <a class="btn-floating waves-effect waves-light blue" ><i class="material-icons">edit</i></a></td>
-          <td> <a class="btn-floating waves-effect waves-light red" ><i class="material-icons">delete</i></a></td>
-        </tr>
-        
-     
-      </tbody>
-    </table>
-  </div>
-      </div>
-  </div>
-</div>
-  <section class="content" *ngIf="hide">
-   <div class="container">
-      <div class="card">
-        <form class="card-content" [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
-          <div class="row">
-            <h6>Create New Item</h6>
-           
-          </div>
-        
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" formControlName="itemName"/>
-              <label for="text">Item Name: </label>
-              <small class="errorMsg" *ngIf="!createItemForm.get('itemName').valid && createItemForm.get('itemName').touched">Please enter item Name</small>
+    <div class="container" *ngIf="show">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <h6 class="tableTitle">All Items</h6>
+                    </div>
+                    <div class="input-field col s4">
+                    </div>
+                    <div class="input-field col s2">
+                        <div class="switch">
+                            <label>
+      Off
+      <input type="checkbox">
+      <span class="lever"></span>
+      On
+    </label>
+                        </div>
+
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" name="text" maxlength="200" />
+                        <label for="text">Search: </label>
+                    </div>
+                </div>
+                <div class="custom-responsive">
+                    <table class="striped hover centered">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Item Name</th>
+                                <th>Item Code</th>
+                                <th>Item price</th>
+                                <th>Item Description</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of aa; index as i ">
+                                <td>{{i+1}}</td>
+                                <td>{{item.ItemName }}</td>
+                                <td>{{item.ItemCode }}</td>
+                                <td>{{item.Price }}</td>
+                                <td>{{item.Description }}</td>
+                                <td> <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+                                <td> <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
-      <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" formControlName="itemCode"/>
-              <label for="text">Item Code: </label>
-              <small class="errorMsg" *ngIf="!createItemForm.get('itemCode').valid && createItemForm.get('itemCode').touched">Please enter item Code</small>
-            </div>
-          </div>
-      <div class="row">
-            <div class="input-field col s6">
-              <input type="text" name="text" maxlength="200" formControlName="Price"/>
-              <label for="text">Item Price: </label>
-              <small class="errorMsg" *ngIf="!createItemForm.get('Price').valid && createItemForm.get('Price').touched">Please enter item Price</small>
-            </div>
-      <div class="input-field col s6">
-              <input type="text" name="Code" maxlength="200" formControlName="Description"/>
-              <label for="text">Item Description: </label>
-             
-            </div>
-          </div>
-          <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="createItemForm.invalid" value="Submit" /></div>
-        </form>
-      </div>
+        </div>
     </div>
-  </section>
-  </main>
+    <section class="content" *ngIf="hide">
+        <div class="container">
+            <div class="card">
+                <form class="card-content" [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <h6>Create New Item</h6>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="text" maxlength="200" formControlName="itemName" />
+                            <label for="text">Item Name: </label>
+                            <small class="errorMsg" *ngIf="!createItemForm.get('itemName').valid && createItemForm.get('itemName').touched">Please enter item Name</small>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="Code" maxlength="200" formControlName="itemCode" />
+                            <label for="text">Item Code: </label>
+                            <small class="errorMsg" *ngIf="!createItemForm.get('itemCode').valid && createItemForm.get('itemCode').touched">Please enter item Code</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="text" maxlength="200" formControlName="Price" />
+                            <label for="text">Item Price: </label>
+                            <small class="errorMsg" *ngIf="!createItemForm.get('Price').valid && createItemForm.get('Price').touched">Please enter item Price</small>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="Code" maxlength="200" formControlName="Description" />
+                            <label for="text">Item Description: </label>
+
+                        </div>
+                    </div>
+                    <div class="center-align"><input class="btn btn-success" type="submit" [disabled]="createItemForm.invalid" value="Submit" /></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

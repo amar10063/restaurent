@@ -1,44 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
-main{margin-top:65px;}
-select{display:block}
-.btnHeader button{margin:0 2px;}
-input.ng-touched.ng-invalid{
-    border-bottom:2px solid red;
-} 
-select.ng-touched.ng-invalid{
-    border-bottom:2px solid red;
-} 
-.errorMsg{color: red;}
-.row{margin-bottom: 5px !important;}
-.footer-copyright{    min-height: 30px !important;}
-td, th {
-    padding: 5px 5px !important;
+
+main {
+    margin-top: 65px;
 }
+
+select {
+    display: block
+}
+
+.btnHeader button {
+    margin: 0 2px;
+}
+
+input.ng-touched.ng-invalid {
+    border-bottom: 2px solid red;
+}
+
+select.ng-touched.ng-invalid {
+    border-bottom: 2px solid red;
+}
+
+.errorMsg {
+    color: red;
+}
+
+.row {
+    margin-bottom: 5px !important;
+}
+
+.footer-copyright {
+    min-height: 30px !important;
+}
+
+td,
+th {
+    padding: 4px 5px !important;
+}
+
 footer.page-footer {
     padding-top: 10px;
     background-color: #0e867a !important;
 }
-.btn{height: 25px;
+
+.btn {
+    height: 25px;
     line-height: 25px;
     padding: 0 .75rem;
-    text-transform: none;}
-@media only screen and (min-width: 993px){
-.container {
-    width: 95% !important;
+    text-transform: none;
 }
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 95% !important;
+    }
 }
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea 
-{
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
     height: 2.2rem !important;
 }
+
 select {
     height: 2rem;
-    padding:0 5px;
+    padding: 0 5px;
 }
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
     margin: 0 0 5px 0;
 }
-.btn-floating i {font-size: 1rem!important;line-height: 25px;}
-.btn-floating  {width: 25px;
+
+.btn-floating i {
+    font-size: 1rem!important;
+    line-height: 25px;
+}
+
+.btn-floating {
+    width: 25px;
     height: 25px;
-    line-height: 25px;}
+    line-height: 25px;
+}
+
+.input-field {
+    margin-top: 0rem;
+}
+
+.card .card-content {
+    padding: 15px;
+}
+
+.tableTitle {
+    color: #0e867a;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+thead {
+    border-top: 1px solid #cccaca !important;
+}
+
+.active {
+    background-color: #e0dede;
+}
