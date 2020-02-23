@@ -20,4 +20,12 @@ export class PagesDataService {
       headers
     });
   }
+  getAllItem(): Observable<Items> {
+    const Items = { "Flag": "6" };
+    const body = JSON.stringify(Items);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post<Items>(this.baseUrl, body, {
+      headers
+    });
+  }
 }

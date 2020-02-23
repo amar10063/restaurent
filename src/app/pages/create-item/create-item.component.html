@@ -8,6 +8,9 @@
         <button class="btn waves-effect waves-light" (click)="backForm()" type="submit" name="action">Back
           <i class="material-icons left">arrow_back</i>
         </button>
+        <button class="btn waves-effect waves-light"  type="submit" name="action">Admin Control
+          <i class="material-icons left">person</i>
+        </button>
     <!-- <button class="header" >New Order</button>
     <button class="header" (click)="backForm()">Back</button> -->
       </div>
@@ -26,30 +29,21 @@
           <th>Item Code</th>
           <th>Item price</th>
           <th>Item Description</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Burger</td>
-          <td>Bg001</td>
-          <td>50</td>
-          <td>Spicy Burger</td>
+        <tr *ngFor="let item of aa; index as i ">
+          <td>{{i+1}}</td>
+          <td>{{item.ItemName }}</td>
+          <td>{{item.ItemCode }}</td>
+          <td>{{item.Price }}</td>
+          <td>{{item.Description }}</td>
+          <td> <a class="btn-floating waves-effect waves-light blue" ><i class="material-icons">edit</i></a></td>
+          <td> <a class="btn-floating waves-effect waves-light red" ><i class="material-icons">delete</i></a></td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Burger</td>
-          <td>Bg001</td>
-          <td>50</td>
-          <td>Spicy Burger</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Burger</td>
-          <td>Bg001</td>
-          <td>50</td>
-          <td>Spicy Burger</td>
-        </tr>
+        
      
       </tbody>
     </table>

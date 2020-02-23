@@ -12,7 +12,7 @@ export class CreateItemComponent implements OnInit {
   createItemForm: FormGroup;
   massage: string;
   item: Items;
-  aa: any;
+  aa: [];
   constructor(private pagesDataService: PagesDataService) { }
   public show: boolean = true;
   public hide: boolean = false;
@@ -32,6 +32,7 @@ export class CreateItemComponent implements OnInit {
       'Description': new FormControl(null, Validators.required),
       'Flag': new FormControl('5'),
     });
+    this.allItem();
   }
   onSubmit() {
     const item = this.createItemForm.value;
@@ -49,7 +50,15 @@ export class CreateItemComponent implements OnInit {
         this.aa = this.item.dataList;
         console.log(this.aa);
         this.createItemForm.reset();
+        this.backForm();
       }
     )
+  }
+  allItem() {
+    this.pagesDataService.getAllItem().subscribe((data) => {
+      this.item = data;
+      this.aa = this.item.dataList;
+      console.log(this.aa);
+    });
   }
 }
