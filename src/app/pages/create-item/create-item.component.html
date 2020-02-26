@@ -61,8 +61,8 @@
                                 <td>{{item.ItemCode }}</td>
                                 <td>{{item.Price }}</td>
                                 <td>{{item.Description }}</td>
-                                <td> <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                                <td> <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                                <td> <a class="btn-floating waves-effect waves-light blue" (click)="bindItem(item)"><i class="material-icons">edit</i></a></td>
+                                <td> <a class="btn-floating waves-effect waves-light red" (click)="deleteItem(item)"><i class="material-icons">delete</i></a></td>
                             </tr>
 
 
