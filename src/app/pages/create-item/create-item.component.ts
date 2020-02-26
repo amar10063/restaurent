@@ -13,7 +13,7 @@ export class CreateItemComponent implements OnInit {
   massage: string;
   item: Items;
   aa: [];
-  updateFlag: number;
+  //updateFlag: number;
   constructor(private pagesDataService: PagesDataService) { }
   public show: boolean = true;
   public hide: boolean = false;
@@ -27,6 +27,7 @@ export class CreateItemComponent implements OnInit {
   }
   ngOnInit() {
     this.createItemForm = new FormGroup({
+      'itemId': new FormControl(),
       'itemName': new FormControl(null, Validators.required),
       'itemCode': new FormControl(null, Validators.required),
       'Price': new FormControl(null, Validators.required),
@@ -39,7 +40,7 @@ export class CreateItemComponent implements OnInit {
     const item = this.createItemForm.value;
     console.log(this.createItemForm.value);
     alert(item.itemCode);
-    if (item.itemCode == '') {
+    if (item.itemId == null) {
       item.Flag = '5';
       this.createItem(item);
     } else {
@@ -71,20 +72,21 @@ export class CreateItemComponent implements OnInit {
   }
   bindItem(item: any) {
     console.log(item);
+    item.itemId = 1;
     //  item.Flag = '2';
     this.createItemForm.controls.itemName.setValue(item.ItemName);
     this.createItemForm.controls.itemCode.setValue(item.ItemCode);
     this.createItemForm.controls.Price.setValue(item.Price);
     this.createItemForm.controls.Description.setValue(item.Description);
-    // this.registerForm.controls.Password.setValue(employee.Flag);
-    this.updateFlag = 1;
+    this.createItemForm.controls.itemId.setValue(item.itemId);
+    //this.updateFlag = 1;
     this.newForm();
     console.log(item);
   }
   updateItem(item: any) {
     this.pagesDataService.updateItem(item).subscribe(
       (data) => {
-        this.massage = 'Item Created';
+        this.massage = 'Item updated succesfully';
         alert(this.massage);
         this.item = data;
         console.log(this.item);
