@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { PagesDataService } from 'src/app/pages-data.service';
 import { Items } from './items';
+import { FilterPipe } from '../../filter.pipe';
 
 @Component({
   selector: 'app-create-item',
@@ -13,6 +14,7 @@ export class CreateItemComponent implements OnInit {
   massage: string;
   item: Items;
   aa: [];
+  nameSearch: string = '';
   //updateFlag: number;
   constructor(private pagesDataService: PagesDataService) { }
   public show: boolean = true;
