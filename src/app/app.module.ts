@@ -14,6 +14,7 @@ import { NewOrderComponent } from './pages/new-order/new-order.component';
 import { LoginServiceService } from './login-service.service';
 import { PagesDataService  } from './pages-data.service';
 import { AuthGuard } from './auth.guard';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import { AuthGuard } from './auth.guard';
     DashboardComponent,
     CreateItemComponent,
     LoginComponent,
-    NewOrderComponent
+    NewOrderComponent,
+    FilterPipe
 
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
+    BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule,
     AppRoutingModule
   ],
   providers: [LoginServiceService, PagesDataService, AuthGuard],

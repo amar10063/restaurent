@@ -55,14 +55,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of aa; index as i ">
+                            <tr *ngFor="let item of aa ; index as i ">
                                 <td>{{i+1}}</td>
                                 <td>{{item.ItemName }}</td>
                                 <td>{{item.ItemCode }}</td>
                                 <td>{{item.Price }}</td>
                                 <td>{{item.Description }}</td>
-                                <td> <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
-                                <td> <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                                <td> <a class="btn-floating waves-effect waves-light blue" (click)="bindItem(item)"><i class="material-icons">edit</i></a></td>
+                                <td> <a class="btn-floating waves-effect waves-light red" (click)="deleteItem(item)"><i class="material-icons">delete</i></a></td>
                             </tr>
 
 
@@ -82,6 +82,7 @@
                     </div>
 
                     <div class="row">
+                        <input type="hidden"  formControlName="itemId">
                         <div class="input-field col s6">
                             <input type="text" name="text" maxlength="200" formControlName="itemName" />
                             <label for="text">Item Name: </label>

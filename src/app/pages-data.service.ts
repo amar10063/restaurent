@@ -28,4 +28,19 @@ export class PagesDataService {
       headers
     });
   }
+  updateItem(items: Items): Observable<Items> {
+    const body = JSON.stringify(items);
+    console.log(body);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post<Items>(this.baseUrl, body, {
+      headers
+    });
+  }
+  deleteItem(items: Items): Observable<Items> {
+    const body = JSON.stringify(items);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post<Items>(this.baseUrl, body, {
+      headers
+    });
+  }
 }
