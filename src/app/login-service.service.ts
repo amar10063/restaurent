@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginServiceService {
 
-  baseUrl = 'http://10.10.10.124:808/api/ActivityAdd/AngularManipulation';
+  baseUrl = 'http://localhost:58706/api/ActivityAdd/AngularManipulation';
   constructor(private http: HttpClient) { }
 
   adminLogin(admin: LoginAdmin): Observable<LoginAdmin> {

@@ -8,7 +8,7 @@ import { Items } from './pages/create-item/items';
 })
 export class PagesDataService {
 
-  baseUrl = 'http://10.10.10.124:808/api/ActivityAdd/AngularManipulation';
+  baseUrl = 'http://localhost:58706/api/ActivityAdd/AngularManipulation';
   constructor(private http: HttpClient) { }
 
   createItem(items: Items): Observable<Items> {
