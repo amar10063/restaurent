@@ -12,7 +12,9 @@ import { CreateItemComponent } from './pages/create-item/create-item.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrderComponent } from './pages/new-order/new-order.component';
 import { LoginServiceService } from './login-service.service';
-import { PagesDataService  } from './pages-data.service';
+import { PagesDataService } from './pages-data.service';
+import { NewOrder } from './pages/new-order/new-order';
+import { NewOrderService } from './new-order.service';
 import { AuthGuard } from './auth.guard';
 import { FilterPipe } from './filter.pipe';
 
@@ -34,7 +36,7 @@ import { FilterPipe } from './filter.pipe';
     BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule,
     AppRoutingModule
   ],
-  providers: [LoginServiceService, PagesDataService, AuthGuard],
+  providers: [LoginServiceService, PagesDataService, NewOrderService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

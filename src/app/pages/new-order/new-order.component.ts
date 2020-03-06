@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { NewOrderService } from 'src/app/new-order.service';
 
 @Component({
   selector: 'app-new-order',
@@ -8,7 +9,12 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 })
 export class NewOrderComponent implements OnInit {
   newOrderForm: FormGroup;
-  constructor() { }
+  massage: string;
+  newOrder: any;
+  aa: any;
+  Order: any;
+
+  constructor(private newOrderService: NewOrderService) { }
   public show: boolean = true;
   public hide: boolean = false;
   newForm() {
@@ -22,29 +28,64 @@ export class NewOrderComponent implements OnInit {
   ngOnInit() {
     this.newOrderForm = new FormGroup({
       'CustomerName': new FormControl(null, Validators.required),
-      'CustomerMobile': new FormControl(null, Validators.required),
-      'addItem': new FormArray([this.createItem()]),
+      'Mobile': new FormControl(null, Validators.required),
+      'Finaltotal': new FormControl(1200),
+      'Flag': new FormControl('7'),
+      'dataList': new FormArray([this.createItem()]),
     });
-
+    this.allOrder();
   }
   createItem(): FormGroup {
     return new FormGroup({
-      'itemName': new FormControl(null, Validators.required),
-      'quantity': new FormControl(null, Validators.required),
+      // 'itemName': new FormControl(null, Validators.required),
+      // 'quantity': new FormControl(null, Validators.required),
+      'ItemId': new FormControl(),
+      'Qty': new FormControl(),
+      'Peritemtotal': new FormControl(200),
     })
   }
 
   addItem(): void {
-    (<FormArray>this.newOrderForm.get('addItem')).push(new FormGroup({
-      'itemName': new FormControl(null, Validators.required),
-      'quantity': new FormControl(null, Validators.required),
+    (<FormArray>this.newOrderForm.get('dataList')).push(new FormGroup({
+      // 'itemName': new FormControl(null, Validators.required),
+      // 'quantity': new FormControl(null, Validators.required),
+
+      'ItemId': new FormControl(),
+      'Qty': new FormControl(),
+      'Peritemtotal': new FormControl(200),
+
     }));
   }
   removeItem(i: number) {
     console.log("row No =" + i);
-    (<FormArray>this.newOrderForm.get('addItem')).removeAt(i);
+    (<FormArray>this.newOrderForm.get('dataList')).removeAt(i);
   }
   onSubmit() {
+    const newOrder = this.newOrderForm.value;
     console.log(this.newOrderForm.value);
+    //newOrder.Flag = '7';
+    this.createOrder(newOrder);
+  }
+  createOrder(newOrder: any) {
+    this.newOrderService.createNewOrder(newOrder).subscribe(
+      (data) => {
+        this.massage = 'Order Created';
+        alert(this.massage);
+        this.newOrder = data;
+        console.log(this.newOrder);
+        // alert(this.item.Status);
+        //this.aa = this.newOrder.dataList;
+        console.log(this.aa);
+        //this.createItemForm.reset();
+        //  this.backForm();
+      }
+    )
+  }
+  allOrder() {
+    this.newOrderService.getAllOrder().subscribe((data) => {
+      this.Order = data;
+      this.aa = this.Order.dataList;
+      console.log(this.aa);
+    });
   }
 }

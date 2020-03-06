@@ -50,33 +50,20 @@
                                 <th>Order ID</th>
                                 <th>Total Quantity</th>
                                 <th>Total Amount</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Amar</td>
-                                <td>9932017031</td>
-                                <td>OD1</td>
-                                <td>5</td>
-                                <td>800</td>
+                            <tr *ngFor="let Order of aa ; index as i ">
+                                <td>{{i+1}}</td>
+                                <td>{{Order.CustomerName}}</td>
+                                <td>{{Order.Mobile}}</td>
+                                <td>{{Order.OrderId}}</td>
+                                <td>{{Order.totalqty}}</td>
+                                <td>{{Order.Finaltotal}}</td>
+                                <td> <a class="btn-floating waves-effect waves-light red" (click)="deleteOrder(Order)"><i class="material-icons">delete</i></a></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Amarjeet</td>
-                                <td>9932017031</td>
-                                <td>OD2</td>
-                                <td>5</td>
-                                <td>800</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Amar</td>
-                                <td>9932017031</td>
-                                <td>OD3</td>
-                                <td>5</td>
-                                <td>8000</td>
-                            </tr>
+
 
                         </tbody>
                     </table>
@@ -157,9 +144,9 @@
                             <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerName').valid && newOrderForm.get('CustomerName').touched">Please enter Password</small>
                         </div>
                         <div class="input-field col s6">
-                            <input type="text" name="Code" maxlength="200" formControlName="CustomerMobile" />
+                            <input type="text" name="Code" maxlength="200" formControlName="Mobile" />
                             <label for="text">Mobile(optional) </label>
-                            <small class="errorMsg" *ngIf="!newOrderForm.get('CustomerMobile').valid && newOrderForm.get('CustomerMobile').touched">Please enter Password</small>
+                            <small class="errorMsg" *ngIf="!newOrderForm.get('Mobile').valid && newOrderForm.get('Mobile').touched">Please enter Password</small>
                         </div>
                     </div>
                     <div class="row">
@@ -178,7 +165,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody formArrayName="addItem">
+                                <tbody formArrayName="dataList">
                                     <!-- <tr>
                     <td>1</td>
                     <td> 
@@ -195,10 +182,10 @@
                     <td> <label>1000</label></td>
                     <td> <a class="btn-floating  waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                   </tr> -->
-                                    <tr [formGroupName]="i" *ngFor="let item of newOrderForm.get('addItem').controls; index as i">
+                                    <tr [formGroupName]="i" *ngFor="let item of newOrderForm.get('dataList').controls; index as i">
                                         <td>{{i+1}}</td>
                                         <td>
-                                            <select formControlName="itemName">
+                                            <select formControlName="ItemId">
     <option value="0" >Choose your option</option>
     <option value="1">Item 1</option>
     <option value="2">Item 2</option>
@@ -207,7 +194,7 @@
 
                                         </td>
                                         <td> <label>1100</label></td>
-                                        <td> <input type="text" name="text" maxlength="200" formControlName="quantity" /></td>
+                                        <td> <input type="text" name="text" maxlength="200" formControlName="Qty" /></td>
                                         <td> <label>10000</label></td>
                                         <td> <a class="btn-floating waves-effect waves-light red" (click)="addItem()"><i class="material-icons">add</i></a></td>
                                         <td> <a class="btn-floating waves-effect waves-light red" (click)="removeItem(i)"><i class="material-icons">remove</i></a></td>
