@@ -124,3 +124,7 @@ thead {
 .active {
     background-color: #e0dede;
 }
+
+.footer-copyright {
+    padding: 4px 0px !important;
+}

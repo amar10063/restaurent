@@ -31,6 +31,24 @@ export class NewOrderService {
     });
   }
 
+  getAllItems(): Observable<NewOrder> {
+    const newOrder = { "Flag": "11" };
+    const body = JSON.stringify(newOrder);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post<NewOrder>(this.baseUrl, body, {
+      headers
+    });
+  }
+  getItemPrice(newOrder: NewOrder): Observable<NewOrder> {
+    console.log(newOrder);
+    const body = JSON.stringify(newOrder);
+    console.log(body);
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.http.post<NewOrder>(this.baseUrl, body, {
+      headers
+    });
+  }
+
   deleteOrder(newOrder: NewOrder): Observable<NewOrder> {
     const body = JSON.stringify(newOrder);
     const headers = new HttpHeaders().set('content-type', 'application/json');

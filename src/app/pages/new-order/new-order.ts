@@ -4,5 +4,5 @@ export class NewOrder {
     Flag: number;
   Status: any;
   dataList: any;
-
+  AllItem: any;
 }

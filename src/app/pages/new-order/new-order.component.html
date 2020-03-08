@@ -185,11 +185,11 @@
                                     <tr [formGroupName]="i" *ngFor="let item of newOrderForm.get('dataList').controls; index as i">
                                         <td>{{i+1}}</td>
                                         <td>
-                                            <select formControlName="ItemId">
-    <option value="0" >Choose your option</option>
-    <option value="1">Item 1</option>
+                                            <select formControlName="ItemId" (change)="onChange($event.target.value)">
+    <option *ngFor="let Item of Items" value="{{Item.ItemId}}">{{Item.ItemName}}</option>
+    <!-- <option value="1">Item 1</option>
     <option value="2">Item 2</option>
-    <option value="3">Item 3</option>
+    <option value="3">Item 3</option> -->
   </select>
 
                                         </td>
